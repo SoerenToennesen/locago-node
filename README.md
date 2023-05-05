@@ -1,0 +1,1 @@
+# Locago node project
