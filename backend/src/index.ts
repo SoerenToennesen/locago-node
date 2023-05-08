@@ -22,12 +22,14 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 const server = http.createServer(app);
-const port: number = parseInt(getProperty("server.port"))
+const port: number = parseInt(getProperty("server.port"));
 server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}/`);
 });
+const mongoUsername: string = getProperty("db.mongo.username");
+const mongoPassword: string = getProperty("db.mongo.password");
 
-const MONGO_URL = "mongodb+srv://soerentoennesen:Kcp8R3RRzU13rxgs@cluster0.ikk0ats.mongodb.net/?retryWrites=true&w=majority";
+const MONGO_URL = `mongodb+srv://${mongoUsername}:${mongoPassword}@cluster0.ikk0ats.mongodb.net/?retryWrites=true&w=majority`;
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
 mongoose.connection.on("error", (error: Error) => console.log(error));
