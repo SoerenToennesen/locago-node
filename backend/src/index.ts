@@ -6,6 +6,11 @@ import compression from 'compression';
 import cors from 'cors';
 import mongoose from "mongoose";
 import router from "./router";
+const PropertiesReader = require('properties-reader');
+
+const prop = PropertiesReader("../app.properties");
+
+const getProperty = (pty: string) => {return prop.get(pty);}
 
 const app = express();
 app.use(cors({
@@ -17,8 +22,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 const server = http.createServer(app);
-
-const port: number = 8080;
+const port: number = parseInt(getProperty("server.port"))
 server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}/`);
 });

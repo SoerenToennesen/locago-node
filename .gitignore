@@ -11,3 +11,5 @@
 ### npm ###
 node_modules
 build
+
+*.properties
