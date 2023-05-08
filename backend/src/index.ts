@@ -22,7 +22,7 @@ server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}/`);
 });
 
-const MONGO_URL = "mongodb+srv://soerentoennesen:Kcp8R3RRzU13rxgs@cluster0.ikk0ats.mongodb.net/?retryWrites=true&w=majority";
+const MONGO_URL = "mongodb+srv://soerentoennesen:<password>@cluster0.ikk0ats.mongodb.net/?retryWrites=true&w=majority";
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
 mongoose.connection.on("error", (error: Error) => console.log(error));
