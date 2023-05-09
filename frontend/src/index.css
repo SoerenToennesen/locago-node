@@ -1,0 +1,91 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+}
+
+:root {
+    --sidebar: rgb(82, 82, 82);
+    --sidebar-accent: rgb(133, 133, 133);
+    --text-blue: #4c5c60;
+    --text-blue-accent: #7596a1;
+    --text-white: #ffffff;
+    --status-complete: #A9D5A9;
+    --status-active: #76A5AF;
+    --status-inactive: #DA8B8B;
+}
+
+body {
+    background-size: 20px 20px;
+    animation: fadeMe 1s;
+}
+
+/*Fading animations*/
+@keyframes fadeMe {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/*Sliding animations*/
+@keyframes Right {
+    0% {transform: translateX(-20px);}
+    100% {transform: translateX(0);}
+}
+@keyframes Left {
+    0% {transform: translateX(20px);}
+    100% {transform: translateX(0);}
+}
+@keyframes Down {
+    0% {transform: translateY(-20px);}
+    100% {transform: translateY(0);}
+}
+@keyframes Up {
+    0% {transform: translateY(20px);}
+    100% {transform: translateY(0);}
+}
+
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+}
+.leaflet-div-icon {
+    background: transparent;
+    border: none;
+}
+.arrow-icon {
+    width: 14px;
+    height: 14px;
+}
+.arrow-icon > div {
+    margin-left: -1px;
+    margin-top: -3px;
+    transform-origin: center center;
+    font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--text-blue);
+}
+h3 {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--text-blue);
+}
+h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--text-blue);
+}
+h5 {
+    font-size: 1.05em;
+    font-weight: bold;
+    color: var(--text-blue-accent);
+}
+h6 {
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--text-blue-accent);
+}

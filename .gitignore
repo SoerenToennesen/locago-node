@@ -11,5 +11,8 @@
 ### npm ###
 node_modules
 build
+package-lock.json
 
+### properties ###
 *.properties
+
