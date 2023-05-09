@@ -9,7 +9,7 @@ export function History () {
                 style={{gridColumn: "1 / span 8", width: "100%"}}
                 img={title_img}
                 title={"History"}
-                subtitle={<h6>This is a subtitle...</h6>}
+                subtitle={<h6>Operational history for 2023</h6>}
             />
         );
     }

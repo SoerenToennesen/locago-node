@@ -35,7 +35,7 @@ export const CreateUser = (props: any) => {
             alert("Passwords do not match");
             return;
         }
-        const response = await fetch("http://localhost:8080/auth/register", {
+        const response = await fetch("http://localhost:8082/auth/register", {
             method: 'POST',
             body: JSON.stringify({
                 name: `${firstName} ${lastName}`,

@@ -71,17 +71,17 @@ export function Map(props: any) {
         hubs: hubs, setHubs: setHubs,
         operatorOpen: operatorOpen, setOperatorOpen: setOperatorOpen,
     } = props;
-    const [center, setCenter] = useState({lat: 45.4642, lng: 9.1900})
+    const [center, setCenter] = useState({lat: 55.6761, lng: 12.5683})
     const zoom = 13;
 
     async function handleMapData() {
         const coordinate: ICoordinate = {
-            latitude: 45.4642,
-            longitude: 9.1900
+            latitude: 55.6761,
+            longitude: 12.5683
         };
         const region: IRegion = {
             coordinate: coordinate,
-            radius: 5000
+            radius: 3000
         };
         const numVehicles: number = 200;
         const numOperators: number = 5;

@@ -13,7 +13,7 @@ export const Login = (props: any) => {
     const navigate = useNavigate();
 
     const handleLogin = async () => {
-        let result: Response = await fetch("http://localhost:8080/auth/login", {
+        let result: Response = await fetch("http://localhost:8082/auth/login", {
             method: "post",
             body: JSON.stringify({email, password}),
             headers: {

@@ -59,7 +59,7 @@ export const InfoFeature: React.FC<{
             <div style={{width: '70px', height: '70px', borderRadius: '25px', backgroundColor: logoColor}}>
                 <div
                     className="donut-container"
-                    style={{textAlign: 'center'}}
+                    style={{textAlign: 'center', marginTop: "15px"}}
                 >
                     <i className={logo} style={{color: '#ffffff', fontSize: '200%'}}/>
                 </div>
@@ -71,7 +71,7 @@ export const InfoFeature: React.FC<{
                 <h4>
                     {title}
                 </h4>
-                <div style={{fontWeight: 'bold', marginTop: '-8px'}}>
+                <div style={{fontWeight: 'bold', marginTop: '0px'}}>
                     {value}
                 </div>
             </div>
