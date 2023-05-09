@@ -33,3 +33,5 @@ Specify app.properties file in backend folder with the following data:
 TODO
 
 ## Demo
+
+![demo2v2.gif](assests%2Fdemo2v2.gif)
