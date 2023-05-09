@@ -8,6 +8,7 @@ import {MainpageCard} from "../components/Card";
 import {ReportRowCustom} from "../components/SectionBody";
 import styled from "styled-components";
 import {CompanyRow} from "../components/CompanyRow";
+import {SearchField} from "../components/SearchField";
 const title_img =  require("../assets/overview_image.png");
 
 export function Overview () {
@@ -20,17 +21,17 @@ export function Overview () {
                 style={{gridColumn: "1 / span 8", width: "100%"}}
                 img={title_img}
                 title={"Overview"}
-                subtitle={<h6>198 out of 463 deployed vehicles are currently balanced</h6>}
+                subtitle={<h6><span style={{color: "black"}}>198</span> out of <span style={{color: "black"}}>463</span> deployed vehicles are currently balanced</h6>}
             />
         );
     }
 
     const DonutChart: React.FC = () => {
         const data = {
-            labels: ['Indberettet', 'Mangler'],
+            labels: ['Rebalanced', 'Needs rebalancing'],
             datasets: [
                 {
-                    data: [31, 39],
+                    data: [39, 31],
                     backgroundColor: [
                         '#385a5e',
                         '#7daab5',
@@ -50,7 +51,7 @@ export function Overview () {
                     display: false
                 },
                 tooltip: {
-                    enabled: false
+                    enabled: true
                 },
             },
             maintainAspectRatio: true,
@@ -67,45 +68,34 @@ export function Overview () {
                             color: "#7596a1",
                             marginRight: "10px",
                         }}>
-                            <i className="bi bi-square-fill" style={{color: '#385a5e'}}/>
-                            &nbsp;&nbsp;Rebalanced
-                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <i className="bi bi-square-fill" style={{color: '#7daab5'}}/>
                             &nbsp;&nbsp;Needs rebalancing
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i className="bi bi-square-fill" style={{color: '#385a5e'}}/>
+                            &nbsp;&nbsp;Rebalanced
                         </div>
                     }
                 />
-                <div className="donut-container" style={{height: '280px', width: '280px', marginTop: '-20px', marginLeft: '100px'}}>
+                <div style={{height: '280px', width: '100%', justifyContent: "center", display: "flex", position: "relative", zIndex: "10"}}>
                     <Doughnut
                         data={data}
                         options={options}
                     />
-                    <div
-                        className="donut-container"
-                        style={{
-                            top: '45.9%',
-                            left: '25%',
-                            position: 'absolute',
-                        }}
-                    >
+                    <div style={{
+                        background: '#f2f2f2',
+                        width: '200px',
+                        height: '200px',
+                        borderRadius: '1000px',
+                        textAlign: 'center',
+                        position: "absolute",
+                        top: "40px",
+                        zIndex: "-10",
+                    }}>
                         <div style={{
-                            background: '#f2f2f2',
-                            height: '170px',
-                            width: '170px',
-                            borderRadius: '1000px',
+                            marginTop: "75px"
                         }}>
-                            <div
-                                className="donut-container"
-                                style={{
-                                    top: '40%',
-                                    position: 'absolute',
-                                    width: '100%',
-                                    textAlign: 'center',
-                                }}
-                            >
-                                # deployed vehicles
-                                <h3 style={{marginTop: "10px"}}>463</h3>
-                            </div>
+                            <h3>Deployed</h3>
+                            <h3>vehicles</h3>
                         </div>
                     </div>
                 </div>
@@ -159,14 +149,10 @@ export function Overview () {
     ) => {
         return (
             <div style={{gridColumn: "1 / span 8", gridRow: "3", marginBottom: '-50px'}}>
-                <input
-                    className="form-control m-2"
-                    style={{maxWidth: "300px"}}
-                    placeholder="Search vehicles"
-                    value={searchValue}
-                    onChange={(e) => {
-                        setSearch(e.currentTarget.value)
-                    }}
+                <SearchField
+                    placeholder={"Search vehicles..."}
+                    searchValue={searchValue}
+                    setSearch={setSearch}
                 />
             </div>
         );
@@ -177,7 +163,7 @@ export function Overview () {
       text-align: center;
       font-size: 1.2em;
       font-weight: bold;
-      color: var(--momstertech-darkgrey-bg-theme);
+      color: darkgray;
       margin-top: 10px;
       margin-bottom: 3px;
     `;

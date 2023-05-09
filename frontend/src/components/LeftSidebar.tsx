@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import styled from "styled-components";
 const logo =  require("../assets/locago_logo.png");
@@ -52,13 +52,22 @@ const menuItems = [
 export function LeftSidebar () {
     const [page, setPage] = useState("");
 
+    useEffect(() => {
+        const idx: number = window.location.href.lastIndexOf("/");
+        if (idx < window.location.href.length) {
+            const tempPage: string = window.location.href.substring(idx + 1);
+            if (tempPage === "") setPage("overview");
+            else setPage(tempPage);
+        }
+    }, [window.location.href]);
+
     const MenuItem = (props: any) => {
         const {name, iconClassName, to} = props;
         return (
             <li style={{listStyleType: "none"}}>
                 <NavLink to={to} style={{textDecoration: "none"}}>
-                    <SidebarMenuItem selected={page === name} onClick={() => setPage(name)}>
-                        <SidebarMenuIconText selected={page === name}>
+                    <SidebarMenuItem selected={page.toLowerCase() === name.toLowerCase()} onClick={() => setPage(name)}>
+                        <SidebarMenuIconText selected={page.toLowerCase() === name.toLowerCase()}>
                             <div style={{display: "inline-block", width: "40px", fontSize: "15px"}}>
                                 <i className={iconClassName}/>
                             </div>

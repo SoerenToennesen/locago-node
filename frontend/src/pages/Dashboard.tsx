@@ -14,7 +14,12 @@ export function Dashboard () {
                 style={{gridColumn: "1 / span 8", width: "100%"}}
                 img={title_img}
                 title={"Dashboard"}
-                subtitle={<h6>Predicted revenue gain from rebalancing this month: &nbsp;&nbsp; 4,235 EUR</h6>}
+                subtitle={
+                    <h6>
+                        Predicted revenue gain from rebalancing this month: &nbsp;
+                        <span style={{color: "black"}}>4,323 EUR</span>
+                    </h6>
+                }
             />
         );
     }
@@ -29,9 +34,9 @@ export function Dashboard () {
         ];
 
         return (
-            <MainpageCard style={{gridColumn: "1 / span 5", gridRow: "2"}}>
+            <MainpageCard style={{gridColumn: "1 / span 5", gridRow: "3"}}>
                 <ReportRowCustom
-                    title={<h3>{'Todays operations'}</h3>}
+                    title={<h3>{'Operator efficiency'}</h3>}
                     value={
                         <div style={{
                             fontSize: "1.1em",
@@ -67,10 +72,10 @@ export function Dashboard () {
 
     function DonutChartComponent() {
         const data = {
-            labels: ['Salgsmoms', 'Købsmoms'],
+            labels: ['Completed', 'In progress'],
             datasets: [
                 {
-                    data: [82650, 66120],
+                    data: [66120, 82650],
                     backgroundColor: [
                         '#385a5e',
                         '#7daab5',
@@ -92,9 +97,9 @@ export function Dashboard () {
             cutout: 120,
         }
         return (
-            <MainpageCard style={{gridColumn: "6 / span 3", gridRow: "2"}}>
+            <MainpageCard style={{gridColumn: "6 / span 3", gridRow: "3"}}>
                 <ReportRowCustom
-                    title={<h3>{''}</h3>}
+                    title={<h3>{'Total operations'}</h3>}
                     value={
                         <div style={{
                             fontSize: "1.1em",
@@ -102,46 +107,34 @@ export function Dashboard () {
                             color: "#7596a1",
                             marginRight: "10px",
                         }}>
-                            <i className="bi bi-square-fill" style={{color: '#385a5e'}} />
-                            &nbsp;&nbsp;Completed operations
-                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <i className="bi bi-square-fill" style={{color: '#7daab5'}} />
-                            &nbsp;&nbsp;In progress operations
+                            &nbsp;&nbsp;In progress
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i className="bi bi-square-fill" style={{color: '#385a5e'}} />
+                            &nbsp;&nbsp;Completed
                         </div>
                     }
                 />
-                <div className="donut-container" style={{height: '280px', width: '280px', marginTop: '-20px', marginLeft: '100px'}}>
+                <div style={{height: '280px', width: '100%', justifyContent: "center", display: "flex", position: "relative", zIndex: "10"}}>
                     <Doughnut
                         data={data}
                         options={options}
                     />
-                    <div
-                        className="donut-container"
-                        style={{
-                            top: '46%',
-                            left: '75%',
-                            position: 'absolute',
-                        }}
-                    >
+                    <div style={{
+                        background: '#f2f2f2',
+                        width: '200px',
+                        height: '200px',
+                        borderRadius: '1000px',
+                        textAlign: 'center',
+                        position: "absolute",
+                        top: "40px",
+                        zIndex: "-10",
+                    }}>
                         <div style={{
-                            background: '#f2f2f2',
-                            height: '170px',
-                            width: '170px',
-                            borderRadius: '1000px',
+                            marginTop: "66px"
                         }}>
-                            <div
-                                className="donut-container"
-                                style={{
-                                    top: '38%',
-                                    position: 'absolute',
-                                    width: '100%',
-                                    textAlign: 'center',
-                                }}
-                            >
-                                Time spent / time left
-                                <h3>4H 23M /</h3>
-                                <h3>3H 37M</h3>
-                            </div>
+                            <h3>Time spent vs.</h3>
+                            <h3>time left</h3>
                         </div>
                     </div>
                 </div>
@@ -152,39 +145,42 @@ export function Dashboard () {
     function FeaturedInfo () {
         return (
             <>
-                <MainpageCard style={{gridColumn: "1 / span 2", gridRow: "3", marginBottom: '20px'}}>
+                <div style={{gridColumn: "1 / span 8", gridRow: "4", marginBottom: '0px', marginLeft: '30px'}}>
+                    <h3 style={{marginBottom: "-30px"}}>KPIs for 2023</h3>
+                </div>
+                <MainpageCard style={{gridColumn: "1 / span 2", gridRow: "5", marginBottom: '20px'}}>
                     <InfoFeature
                         logo={'bi bi-currency-euro'}
                         logoColor={'#7daab5'}
                         percent={'17.8 %'}
-                        title={'Gained revenue (2023)'}
+                        title={'Gained revenue'}
                         value={'20,432 EUR'}
                     />
                 </MainpageCard>
-                <MainpageCard style={{gridColumn: "3 / span 2", gridRow: "3", marginBottom: '20px'}}>
+                <MainpageCard style={{gridColumn: "3 / span 2", gridRow: "5", marginBottom: '20px'}}>
                     <InfoFeature
                         logo={'bi bi-lightning-charge-fill'}
                         logoColor={'#4c5c60'}
                         percent={'-38.6%'}
-                        title={'Optimized routing (2023)'}
+                        title={'Optimized routing'}
                         value={'- 3,203 km'}
                     />
                 </MainpageCard>
-                <MainpageCard style={{gridColumn: "5 / span 2", gridRow: "3", marginBottom: '20px'}}>
+                <MainpageCard style={{gridColumn: "5 / span 2", gridRow: "5", marginBottom: '20px'}}>
                     <InfoFeature
                         logo={'bi bi-cone-striped'}
                         logoColor={'#bfbfbf'}
                         percent={'-382.3%'}
-                        title={'Operational downtime (2023)'}
+                        title={'Operational downtime'}
                         value={'2 hrs, 23 mins'}
                     />
                 </MainpageCard>
-                <MainpageCard style={{gridColumn: "7 / span 2", gridRow: "3", marginBottom: '20px'}}>
+                <MainpageCard style={{gridColumn: "7 / span 2", gridRow: "5", marginBottom: '20px'}}>
                     <InfoFeature
                         logo={'bi bi-cloud-fill'}
                         logoColor={'#dde1ee'}
                         percent={'-20.3 kg'}
-                        title={'CO2 emissions (2023)'}
+                        title={'CO2 emissions'}
                         value={'5,432 EUR'}
                     />
                 </MainpageCard>
@@ -201,8 +197,13 @@ export function Dashboard () {
         }}>
             <GridComponent>
                 <Header/>
-                <BarChartComponent/>
-                <DonutChartComponent/>
+                <>
+                    <div style={{gridColumn: "1 / span 8", gridRow: "2", marginBottom: '0px', marginLeft: '30px'}}>
+                        <h3 style={{marginBottom: "-30px"}}>Today's operational analytics</h3>
+                    </div>
+                    <BarChartComponent/>
+                    <DonutChartComponent/>
+                </>
                 <FeaturedInfo/>
             </GridComponent>
         </div>

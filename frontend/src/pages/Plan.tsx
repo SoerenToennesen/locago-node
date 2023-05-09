@@ -7,6 +7,7 @@ import {SectionTitle} from "../components/SectionTitle";
 import {GridComponent} from "../components/Grid";
 import {RouteRow, RouteRowMultiple} from "../components/RouteRow";
 import {IOperatorBucketedRoutes} from "../interfaces/IOperatorBucketedRoutes";
+import {SearchField} from "../components/SearchField";
 const title_img =  require("../assets/report_image.png");
 
 const Column = styled.div`
@@ -68,14 +69,10 @@ export function Plan(props: any) {
         } = props;
         return (
             <div style={{gridColumn: "1 / span 8", gridRow: "3", marginTop: '-35px'}}>
-                <input
-                    className="form-control m-2"
-                    style={{maxWidth: "300px"}}
-                    placeholder="Search keyword"
-                    value={searchValue}
-                    onChange={(e) => {
-                        setSearch(e.currentTarget.value)
-                    }}
+                <SearchField
+                    placeholder={"Search keyword..."}
+                    searchValue={searchValue}
+                    setSearch={setSearch}
                 />
             </div>
         );
