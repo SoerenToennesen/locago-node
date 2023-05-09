@@ -36,7 +36,7 @@ export const Login = (props: any) => {
 
     return <div className={'form-container'}>
         <h1 className="login-title" style={{marginLeft: "100px"}}>
-            Log ind
+            Login
         </h1>
         <input type="text" name="username" placeholder="E-MAIL"
                value={email}
