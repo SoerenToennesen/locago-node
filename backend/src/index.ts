@@ -6,6 +6,7 @@ import compression from 'compression';
 import cors from 'cors';
 import mongoose from 'mongoose';
 const PropertiesReader = require('properties-reader');
+const { Client } = require("pg");
 
 import router from './router';
 
@@ -25,9 +26,9 @@ const getProperty = (pty: string) => {
     return prop.get(pty);
 }
 const server = http.createServer(app);
-const port = parseInt(getProperty('server.port'));
-server.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}/`);
+const serverPort = parseInt(getProperty('server.port'));
+server.listen(serverPort, () => {
+    console.log(`Server running on http://localhost:${serverPort}/`);
 });
 
 const dbMongoUsername: string = getProperty('db.mongo.username');
@@ -37,5 +38,19 @@ const MONGO_URL: string = `mongodb+srv://${dbMongoUsername}:${dbMongoPassword}@c
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
 mongoose.connection.on('error', (error: Error) => console.log(error));
+
+const postgresHost = getProperty('db.postgres.host.dev');
+const postgresPort = parseInt(getProperty('db.postgres.port'));
+const postgresUser = getProperty('db.postgres.username');
+const postgresPassword = getProperty('db.postgres.password');
+const postgresDatabase = getProperty('db.postgres.database.dev');
+export const postgresClient = new Client({
+    host: postgresHost,
+    port: postgresPort,
+    user: postgresUser,
+    password: postgresPassword,
+    database: postgresDatabase
+})
+postgresClient.connect();
 
 app.use('/', router());

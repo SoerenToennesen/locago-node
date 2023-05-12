@@ -2,7 +2,13 @@
 
 Description...
 
+
 ## How to run
+
+### Prerequisites
+ - PostgreSQL 14
+ - Node JS
+ - Python 3.8 (pip)
 
 Specify app.properties file in backend folder with the following data:
 

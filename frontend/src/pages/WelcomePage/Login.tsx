@@ -60,10 +60,24 @@ export const Login = (props: any) => {
                 Forgot password?
             </button>
         </div>
-        <button type="button" onClick={handleLogin} style={{marginTop: '30px'}}>
+        <button type="button" onClick={handleLogin} style={{
+            marginTop: '30px',
+            height: "30px",
+            cursor: "pointer",
+            border: "1px solid #4C5C60",
+            borderRadius: "5px",
+            backgroundColor: "white",
+        }}>
             LOGIN
         </button>
-        <button type="button" onClick={() => setIsLogin(!isLogin)} style={{marginTop: '20px'}}>
+        <button type="button" onClick={() => setIsLogin(!isLogin)} style={{
+            marginTop: '0px',
+            height: "30px",
+            cursor: "pointer",
+            border: "1px solid #4C5C60",
+            borderRadius: "5px",
+            backgroundColor: "white",
+        }}>
             CREATE USER
         </button>
     </div>

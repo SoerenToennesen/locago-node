@@ -33,6 +33,7 @@
     "lodash": "^4.17.21",
     "mongodb": "^5.4.0",
     "mongoose": "^7.1.0",
+    "pg": "^8.10.0",
     "properties-reader": "^2.2.0"
   }
 }
